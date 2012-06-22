@@ -1,0 +1,8 @@
+// some stuff ... yeah
+{A}
+{B}
+{CB}
+/A/ -> {AB}
+/B/ -> {A}
+/(C)B/ -> {$1A}
+/(C)A/ -> {$1BA}

@@ -1,0 +1,39 @@
+
+Package to.uk.orangedog.reginald;
+
+Helpers
+	// copied from http://sablecc.sourceforge.net/grammars/ISOC.grammar.html
+	all	= [0 .. 127];
+	cr	= 13;
+	lf	= 10;
+	tab	= 9;
+	not_eol	= [all - [cr + lf]];
+	
+	f_slash = '/';
+	
+Tokens
+	eol	= cr lf | cr | lf;
+	produces = '->';
+
+	pattern = f_slash not_eol* f_slash ;
+	
+	replacement = '{' not_eol+ '}';
+
+	// copied from http://sablecc.sourceforge.net/grammars/ISOC.grammar.html
+	comment	= '//' not_eol* (cr lf | cr | lf);
+	
+	blank			= (' '|tab|lf|cr)+;
+	
+	
+Ignored Tokens
+	comment, blank;
+ 
+Productions
+	file =
+		[pre]:eol*
+		start+
+		transform*;
+	
+	start = [text]:replacement eol*;
+
+	transform = pattern produces replacement eol*;

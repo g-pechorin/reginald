@@ -4,7 +4,7 @@
 
 	<groupId>to.uk.orangedog</groupId>
 	<artifactId>reginald</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	
 	<description>A wee regex / L-System thingie</description>
 	
